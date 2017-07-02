@@ -43,6 +43,11 @@ return [
 
     'disks' => [
 
+        'archivosGuardados' => [
+            'driver' => 'local',
+            'root' => storage_path('archivosGuardados'),
+        ],
+
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),
