@@ -23,4 +23,7 @@ Route::get('/archivos','ArchivosController@index');
 
 Route::post('/archivos', 'ArchivosController@store');
 
+Route::get('/archivos/{id}/descargar', 'ArchivosController@descargar');
+
+Route::get('/archivos/{id}/eliminar', 'ArchivosController@destroy');
 

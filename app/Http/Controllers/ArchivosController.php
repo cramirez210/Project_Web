@@ -132,8 +132,6 @@ class ArchivosController extends Controller
         {
           return back()->with('errormsj','Error, los datos no se guardaron');
         }
-
-
     }
 
     /**
@@ -144,14 +142,27 @@ class ArchivosController extends Controller
      */
     public function destroy($id)
     {
+
+      $archivo = archivo::find($id);
+
+       \File::delete(storage_path().'/archivosGuardados/'.$archivo->direccion);
+       
+       $archivo->delete();
+
+       $archivos = archivo::all();
+
+        return view('home', compact('archivos'));
+
+     abort(404);
       
-      archivo::destroy($id);
-      return back();
     }
 
-    public function descargar($file){
-      $archivo = public_path().'/archivosGuardados/'.$file;
-      return response()->download($archivo);
+    public function descargar($id){
+      $archivo = archivo::find($id);
+
+      $url = storage_path().'/archivosGuardados/'.$archivo->direccion;
+
+      return response()->download($url);
     }
 
 }
