@@ -15,7 +15,7 @@ class Archivo extends Migration
     {
         Schema::create('archivos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_usuario')->index();
+            $table->integer('user_id')->index();
             $table->string('titulo');
             $table->string('descripcion');
             $table->string('direccion');

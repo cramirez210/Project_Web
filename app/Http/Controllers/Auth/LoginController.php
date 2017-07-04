@@ -28,7 +28,7 @@ class LoginController extends Controller
      */
 protected function redirectTo(){
         
-        if(\Auth::User()->rol == 2){
+        if(\Auth::User()->rol == 1){
             
             return '/usuarios';
         }else{

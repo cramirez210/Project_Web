@@ -25,9 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $archivos = archivo::all();
+        $user = \Auth::user();
 
-        return view('home', compact('archivos'));
+        return view('home', compact('user'));
     }
 
     public function usuarios()

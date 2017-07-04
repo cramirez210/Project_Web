@@ -29,6 +29,6 @@ class User extends Authenticatable
 
      public function archivos()
     {
-        return $this->belongsTo('App\archivo');
+        return $this->hasMany('App\archivo');
     }
 }

@@ -18,6 +18,7 @@
                         </thead>
                     <tbody>
                         @foreach ($usuarios as $usuario)
+                        @if($usuario->rol != 1)
                             <tr>
                                 <td class="info"> {{$usuario->name}} </td>
                                 <td class="info"> {{$usuario->lastname}} </td>
@@ -26,6 +27,7 @@
                                     <a href="/usuarios/{{$usuario->id}}/archivos" class="btn btn-success btn-xs">Ver Archivos</a>
                                 </td>
                             </tr>
+                        @endif
                         @endforeach
                     </tbody>
                   </table>

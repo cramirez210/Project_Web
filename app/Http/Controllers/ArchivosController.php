@@ -30,15 +30,12 @@ class ArchivosController extends Controller
         return view('home', compact('user'));
     }
 
-    public function mostrar(User $user)
+    public function mostrar($id)
     {
       
-      $archivos = $user->archivos;
+      $user = User::find($id);
 
-      $user = User::find($user);      
-
-      return view('home', compact('archivos', 'user'));
-
+      return view('home', compact('user'));
     }
 
     /**
@@ -56,7 +53,7 @@ class ArchivosController extends Controller
       ]);
 
       $archivos = new archivo();
-      $archivos->id_usuario = $id;
+      $archivos->user_id = $id;
       $archivos->titulo = $request->titulo;
       $archivos->descripcion = $request->descripcion;
 
