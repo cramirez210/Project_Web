@@ -11,7 +11,6 @@
 
             <div class="panel panel-default">
                 <div class="panel-heading"><h4>Archivos</h4></div>
-
                 <div class="panel-body">
                     <div class="table-responsive">
                     <table class="table">
@@ -21,11 +20,12 @@
                                 <th>Descripción</th>
                                 <th>Opciones</th>
                              </tr>
-                        </thead>
+                      </thead>
                     <tbody>
-                        @foreach ($archivos as $archivo)
+
+                        @foreach ($user->archivos as $archivo)
                             <tr>
-                                <td class="info"> {{$archivo->direccion}} </td>
+                                <td class="info"> {{$archivo->titulo}} </td>
                                 <td class="info"> {{$archivo->descripcion}} </td>
                                 <td class="warning"> 
                                     <a href="/archivos/{{$archivo->id}}/descargar" class="btn btn-success btn-xs">Descargar</a>

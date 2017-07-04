@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class archivo extends Model
 {
      protected $fillable = [
-        'descripcion', 'direccion', 'urlImg'
+        'titulo', 'descripcion', 'direccion', 'urlImg'
     ];
+
+    public function usuarios()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

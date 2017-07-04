@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\archivo;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -27,5 +28,12 @@ class HomeController extends Controller
         $archivos = archivo::all();
 
         return view('home', compact('archivos'));
+    }
+
+    public function usuarios()
+    {
+        $usuarios = User::all();
+
+        return view('users', compact('usuarios'));
     }
 }

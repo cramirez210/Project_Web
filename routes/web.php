@@ -19,11 +19,14 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/usuarios','HomeController@usuarios');
+
+Route::get('/usuarios/{id}/archivos','ArchivosController@mostrar');
+
 Route::get('/archivos','ArchivosController@index');
 
-Route::post('/archivos', 'ArchivosController@store');
+Route::post('/archivos/{id}', 'ArchivosController@store');
 
 Route::get('/archivos/{id}/descargar', 'ArchivosController@descargar');
 
 Route::get('/archivos/{id}/eliminar', 'ArchivosController@destroy');
-

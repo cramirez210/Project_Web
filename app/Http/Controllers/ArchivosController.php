@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\archivo;
+use App\User;
 use Storage;
 
 
@@ -22,16 +23,21 @@ class ArchivosController extends Controller
         return view('archivo');
 
    	}
-    public function create()
+    public function create($id)
     {
-        //
+      $user = User::find($id);
+        
+        return view('home', compact('user'));
     }
 
-    public function mostrar()
+    public function mostrar(User $user)
     {
+      
+      $archivos = $user->archivos;
 
-      $archivos = archivo::all();
-      return view('archivo')->with(['archivo'=> $archivos]);
+      $user = User::find($user);      
+
+      return view('home', compact('archivos', 'user'));
 
     }
 
@@ -41,7 +47,7 @@ class ArchivosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) //Almacener los datos
+    public function store(Request $request, $id) //Almacener los datos
     {
 
       $this->validate($request, [ //Si hay un error, devueve la vista
@@ -50,6 +56,8 @@ class ArchivosController extends Controller
       ]);
 
       $archivos = new archivo();
+      $archivos->id_usuario = $id;
+      $archivos->titulo = $request->titulo;
       $archivos->descripcion = $request->descripcion;
 
       $file = $request->file('direccion');  //Se guarda el contenido del request de tipo file en una variable
