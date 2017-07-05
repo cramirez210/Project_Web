@@ -29,11 +29,4 @@ class HomeController extends Controller
 
         return view('home', compact('user'));
     }
-
-    public function usuarios()
-    {
-        $usuarios = User::all();
-
-        return view('users', compact('usuarios'));
-    }
 }

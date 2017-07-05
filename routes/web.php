@@ -21,6 +21,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/usuarios/{id}/archivos','ArchivosController@mostrar');
 
+Route::get('/usuarios/{id}/perfil', 'UserController@show');
+
+Route::get('/usuarios/{id}/editar', 'UserController@editar');
+
+Route::put('/usuarios/{id}', 'UserController@update');
+
 Route::get('/archivos','ArchivosController@index');
 
 Route::post('/archivos/{id}', 'ArchivosController@store');
@@ -30,5 +36,5 @@ Route::get('/archivos/{id}/descargar', 'ArchivosController@descargar');
 Route::get('/archivos/{id}/eliminar', 'ArchivosController@destroy');
 
 Route::group(['middleware' => 'admin'], function () {
-    Route::get('/usuarios','HomeController@usuarios');
+    Route::get('/usuarios','UserController@usuarios');
 });
