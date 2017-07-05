@@ -24,7 +24,7 @@
                        <p>{{$usuario->email}}</p>
                   </div>
                 </div>
-                <a type="button" class="btn btn-primary" href="/usuarios/{{$usuario->id}}/editar">Editar</a>
+                <a type="button" class="btn btn-primary" href="/usuarios/{{$usuario->id}}/editar"><span class="glyphicon glyphicon-edit"></span> Editar</a>
 
                 </div>
                 </div>

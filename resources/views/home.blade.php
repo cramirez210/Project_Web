@@ -6,9 +6,10 @@
         <div class="col-md-8 col-md-offset-2">
 
         @if(Auth::user()->rol == 2)
-        <a class="btn btn-primary" href="/archivos">Cargar Archivo</a> 
+        <a class="btn btn-primary" href="/archivos">
+        <span class="glyphicon glyphicon-upload"></span> Cargar Archivo</a> 
         @else
-        <a href="/archivos/{{$user->id}}/descargar" class="btn btn-success btn-md">Descargar como .zip</a>
+        <a href="/archivos/{{$user->id}}/descargar" class="btn btn-success btn-md">Descargar todo</a>
         @endif
             <br>
             <br>
@@ -17,7 +18,7 @@
                 <div class="panel-heading"><h4>Archivos</h4> </div>
                 <div class="panel-body">
                     <div class="table-responsive">
-                    <table class="table">
+                    <table class="table table-hover">
                         <thead>
                              <tr>
                                 <th>Título</th>
@@ -32,7 +33,8 @@
                                 <td class="info"> {{$archivo->titulo}} </td>
                                 <td class="info"> {{$archivo->descripcion}} </td>
                                 <td class="warning"> 
-                                    <a href="/archivos/{{$archivo->id}}/eliminar" class="btn btn-danger btn-xs">Eliminar</a>
+                                    <a href="/archivos/{{$archivo->id}}/eliminar" class="btn btn-danger btn-xs">
+                                    <span class="glyphicon glyphicon-remove-circle"></span> Eliminar</a>
                                 </td>
                             </tr>
                         @endforeach

@@ -12,7 +12,7 @@
                 <div class="col-md-8 col-md-offset-2">
                     <div class="panel panel-default">
                         <div class="panel panel-heading">
-                             <h3>Agregar nuevo archivo</h3>
+                             <h3>Nuevo archivo</h3>
                         </div>
                             <div class="panel panel-body">
                                 <form class="form-horizontal" role="form" method="POST" action="/archivos/{{Auth::user()->id}}" enctype="multipart/form-data">
@@ -38,11 +38,13 @@
                 
       <div class="form-group">
         <label for="direccion" class="col-sm-2 control-label"><h3>Documento<h3></label>
-          <input type="file" class="file-input" name="direccion">
+          <input type="file" class="file" name="direccion">
       </div>
 
+
   <div class="form-group">
-      <button type="submit" class="btn btn-success"> Guardar </button>
+      <button type="submit" class="btn btn-success"> 
+      <span class="glyphicon glyphicon-floppy-disk"></span> Guardar </button>
   </div>
 
 </form>
