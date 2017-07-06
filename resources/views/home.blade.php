@@ -17,6 +17,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading"><h4>Archivos</h4> </div>
                 <div class="panel-body">
+                @if(count($user->archivos) > 0)
                     <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>
@@ -41,6 +42,9 @@
                     </tbody>
                   </table>
                 </div>
+                @else
+                <h3>No hay archivos para mostrar del usuario {{$user->name}}</h3>
+                @endif
                 </div>
             </div>
         </div>
