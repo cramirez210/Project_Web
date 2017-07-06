@@ -36,20 +36,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('id_card') ? ' has-error' : '' }}">
-                            <label for="id_card" class="col-md-4 control-label">Cédula</label>
-
-                            <div class="col-md-6">
-                                <input id="id_card" type="text" class="form-control" name="id_card" value="{{ $usuario->id_card }}" required autofocus>
-
-                                @if ($errors->has('id_card'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('id_card') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
                         <div class="form-group{{ $errors->has('age') ? ' has-error' : '' }}">
                             <label for="age" class="col-md-4 control-label">Edad</label>
 
@@ -58,7 +44,7 @@
 
                                 @if ($errors->has('age'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('age') }}</strong>
+                                        <strong>El campo edad debe ser un número entero.</strong>
                                     </span>
                                 @endif
                             </div>
@@ -92,6 +78,12 @@
                                 <button type="submit" class="btn btn-primary">
                                    <span class="glyphicon glyphicon-floppy-disk"></span> Guardar
                                 </button>
+                                @if(Auth::user()->rol == 2)
+                                <a href="/home" class="btn btn-default"> 
+                                @else
+                                <a href="/usuarios" class="btn btn-default"> 
+                                 @endif
+                                <span class="glyphicon glyphicon-remove"></span> Cancelar </a>
                             </div>
                         </div>
                     </form>

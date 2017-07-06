@@ -25,6 +25,10 @@ Route::get('/usuarios/{id}/perfil', 'UserController@show');
 
 Route::get('/usuarios/{id}/editar', 'UserController@editar');
 
+Route::get('/usuarios/{id}', 'UserController@eliminar');
+
+Route::get('/usuarios/{id}/eliminar', 'UserController@destroy');
+
 Route::put('/usuarios/{id}', 'UserController@update');
 
 Route::get('/archivos','ArchivosController@index');

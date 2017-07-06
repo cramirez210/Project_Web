@@ -19,6 +19,7 @@
                         </thead>
                     <tbody>
                         @foreach ($usuarios as $usuario)
+                        @if($usuario->rol == 2)
                             <tr>
                                 <td class="info"> {{$usuario->name}} </td>
                                 <td class="info"> {{$usuario->lastname}} </td>
@@ -28,6 +29,7 @@
                                     <a href="/archivos/{{$usuario->id}}/descargar" class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-download"></span>  Descargar</a>
                                 </td>
                             </tr>
+                        @endif
                         @endforeach
                     </tbody>
                   </table>

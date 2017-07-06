@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use App\archivo;
 use App\User;
 use Storage;
@@ -10,6 +11,20 @@ use Storage;
 
 class ArchivosController extends Controller
 {
+
+  /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'titulo' => 'required|string|max:255',
+            'descripcion' => 'string|max:255',
+        ]);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -47,11 +62,6 @@ class ArchivosController extends Controller
     public function store(Request $request, $id) //Almacener los datos
     {
 
-      $this->validate($request, [ //Si hay un error, devueve la vista
-        'descripcion' => 'required',
-        'direccion' => 'required'
-      ]);
-
       $archivos = new archivo();
       $archivos->user_id = $id;
       $archivos->titulo = $request->titulo;
@@ -69,7 +79,7 @@ class ArchivosController extends Controller
 
       $file = glob(storage_path('archivosGuardados/'.$archivos->direccion));
 
-        \Zipper::make('ucr/'.$user->name.'.zip')->add($file);
+        \Zipper::make('ucr/'.$user->name.$user->lastname.'.zip')->add($file);
 
       if( $archivos->save())
       {
@@ -106,6 +116,6 @@ class ArchivosController extends Controller
 
       $user = User::find($id);
 
-       return response()->download(public_path('ucr/'.$user->name.'.zip'));
+       return response()->download(public_path('ucr/'.$user->name.$user->lastname.'.zip'));
            }
 }
