@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading"><h4>Estudiantes</h4></div>
                 <div class="panel-body">
-                @if(count(@usuarios) > 1)
+                @if(count(@usuarios) >= 1)
                     <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>

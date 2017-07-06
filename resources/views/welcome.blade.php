@@ -11,8 +11,13 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                   
+
+                    <img src="https://www.ucr.ac.cr/plantillas/ucr_3/imagenes/firma-ucr-ico.png" class="thumb" alt="a picture">
+                <h4>Programa de Posgrado en Tecnologías de Informaación y Comunicación para la Gestión Organizacional</h4>   
+
                 </div>
+
 
              
             </div>

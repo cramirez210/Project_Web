@@ -17,10 +17,11 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
+
     <style>
             html, body {
-                background-color: #fff;
-                color: #636b6f;
+                background-color: #DFF0F7;
+                color: #40B2DD;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
                 height: 100vh;
@@ -68,11 +69,21 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+            .navbar{
+            background-color: #40B2DD !important; 
+            background-image: url(http://filosofia.ucr.ac.cr/wp-content/uploads/2017/03/r-footer-ucr-logo-2.png) width: 21px; height: 21px;
+            color: white;
+            border-bottom: 4px solid #0F82AF;
+            }
+            background-image{
+               width: 21px;
+    height: 21px; 
+            }
         </style>
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-inverse">
+        <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
 
@@ -85,7 +96,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand" href="{{ url('/') }} " id="titulo">
                         {{ config('app.name', 'UCR') }}
                     </a>
                      @if(Auth::check())
